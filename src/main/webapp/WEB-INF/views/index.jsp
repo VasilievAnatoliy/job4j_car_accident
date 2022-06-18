@@ -18,21 +18,29 @@
 
     <title>Accident</title>
 </head>
-<div class="row">
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col"></th>
-            <th scope="col">Имя</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="user" items="${users}">
-            <td>Hello :</td>
-            <td><c:out value="${user}"/></td>
-        </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+<body>
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Текст</th>
+                <th scope="col">Адрес</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="accident" items="${accidents}">
+                <td><c:out value="${accident.id}"/></td>
+                <td><c:out value="${accident.name}"/></td>
+                <td><c:out value="${accident.text}"/></td>
+                <td><c:out value="${accident.address}"/></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
 </div>
+</body>
 </html>
