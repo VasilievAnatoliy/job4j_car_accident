@@ -26,7 +26,6 @@
                 Редактировать инцидент
             </div>
             <div class="card-body">
-                <jsp:useBean id="accident" type="ru.job4j.accident.model.Accident" scope="request"/>
                 <form action="<c:url value='/update'/>" method='POST'>
                     <input type="hidden" name="id" value="${accident.id}">
                     <div class="form-group">

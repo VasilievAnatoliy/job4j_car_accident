@@ -31,7 +31,7 @@ public class AccidentControl {
     }
 
     @GetMapping("/formUpdate")
-    public String formUpdatePost(@RequestParam("id") int id, Model model) {
+    public String formUpdate(@RequestParam("id") int id, Model model) {
         model.addAttribute(accidentService.findById(id));
         return "accident/edit";
     }
