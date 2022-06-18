@@ -29,4 +29,12 @@ public class AccidentMem {
     public List<Accident> findAll() {
         return accidents.values().stream().toList();
     }
+
+    public Accident findById(int id) {
+        return accidents.get(id);
+    }
+
+    public void update(Accident accident) {
+        accidents.replace(accident.getId(), accident);
+    }
 }
