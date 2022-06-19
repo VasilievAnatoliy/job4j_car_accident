@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.repository.TypeMem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,7 +17,7 @@ public class TypeService {
     }
 
     public List<AccidentType> findAll() {
-        return new ArrayList<>(typeMem.findAll());
+        return typeMem.findAll();
     }
 
     public AccidentType findById(int id) {

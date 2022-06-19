@@ -9,28 +9,40 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.service.AccidentService;
+import ru.job4j.accident.service.RuleService;
 import ru.job4j.accident.service.TypeService;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 
 @Controller
 @ThreadSafe
 public class AccidentControl {
     private final AccidentService accidentService;
     private final TypeService typeService;
+    private final RuleService ruleService;
 
-    public AccidentControl(AccidentService accidentService, TypeService typeService) {
+    public AccidentControl(AccidentService accidentService,
+                           TypeService typeService, RuleService ruleService) {
         this.accidentService = accidentService;
         this.typeService = typeService;
+        this.ruleService = ruleService;
     }
 
     @GetMapping("/create")
     public String create(Model model) {
+        model.addAttribute("rules", ruleService.findAll());
         model.addAttribute("types", typeService.findAll());
         return "accident/create";
     }
 
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident,
-                       @RequestParam("typeId") int id) {
+                       @RequestParam("typeId") int id,
+                       HttpServletRequest req) {
+        String[] ids = req.getParameterValues("rIds");
+        Arrays.stream(ids).forEach(i -> accident.addRule(
+                ruleService.findById(Integer.parseInt(i))));
         accident.setType(typeService.findById(id));
         accidentService.addAccident(accident);
         return "redirect:/";
@@ -38,13 +50,18 @@ public class AccidentControl {
 
     @GetMapping("/formUpdate")
     public String formUpdate(@RequestParam("id") int id, Model model) {
+        model.addAttribute("rules", ruleService.findAll());
         model.addAttribute(accidentService.findById(id));
         return "accident/edit";
     }
 
     @PostMapping("/update")
     public String update(@ModelAttribute Accident accident,
-                         @RequestParam("typeId") int id) {
+                         @RequestParam("typeId") int id,
+                         HttpServletRequest req) {
+        String[] ids = req.getParameterValues("rIds");
+        Arrays.stream(ids).forEach(i -> accident.addRule(
+                ruleService.findById(Integer.parseInt(i))));
         accident.setType(typeService.findById(id));
         accidentService.update(accident);
         return "redirect:/";
