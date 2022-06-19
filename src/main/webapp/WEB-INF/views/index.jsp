@@ -27,12 +27,14 @@
             <tr>
                 <th scope="col">№</th>
                 <th scope="col">Название</th>
+                <th scope="col">Тип</th>
                 <th scope="col">Описание</th>
                 <th scope="col">Адрес</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach var="accident" items="${accidents}">
+                <tr>
                 <td><c:out value="${accident.id}"/></td>
                 <td>
                     <a href="<c:url value='/formUpdate?id=${accident.id}'/>">
@@ -40,6 +42,7 @@
                     </a>
                     <c:out value="${accident.name}"/>
                 </td>
+                <td><c:out value="${accident.type.name}"/> </td>
                 <td><c:out value="${accident.text}"/></td>
                 <td><c:out value="${accident.address}"/></td>
                 </tr>

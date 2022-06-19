@@ -28,6 +28,7 @@
             <div class="card-body">
                 <form action="<c:url value='/update'/>" method='POST'>
                     <input type="hidden" name="id" value="${accident.id}">
+                    <input type="hidden" name="typeId" value="${accident.type.id}">
                     <div class="form-group">
                         <label>Название:
                             <input type='text' class="form-control" size="30" name='name' value="${accident.name}">

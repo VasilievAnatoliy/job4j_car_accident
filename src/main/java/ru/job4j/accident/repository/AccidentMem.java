@@ -3,6 +3,7 @@ package ru.job4j.accident.repository;
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.model.AccidentType;
 
 import java.util.List;
 import java.util.Map;
@@ -16,9 +17,12 @@ public class AccidentMem {
     private final AtomicInteger count = new AtomicInteger(0);
 
     public AccidentMem() {
-        addAccident(Accident.of(0, "name1", "text1", "address1"));
-        addAccident(Accident.of(0, "name2", "text2", "address2"));
-        addAccident(Accident.of(0, "name3", "text3", "address3"));
+        addAccident(Accident.of(0, "Лобовое столкновение", "Описание столкновения",
+                "address1", AccidentType.of(1, "Две машины")));
+        addAccident(Accident.of(0, "Сбит человек на переходе", "Описание происшествия",
+                "address2", AccidentType.of(2, "Машина и человек")));
+        addAccident(Accident.of(0, "ДТП во дворе", "Описание ситуации",
+                "address3", AccidentType.of(3, "Машина и велосипед")));
     }
 
     public Accident addAccident(Accident accident) {
