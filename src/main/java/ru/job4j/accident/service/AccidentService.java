@@ -2,33 +2,35 @@ package ru.job4j.accident.service;
 
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Service;
+
 import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.repository.AccidentMem;
+import ru.job4j.accident.repository.AccidentJdbcTemplate;
+
 
 import java.util.List;
 
 @Service
 @ThreadSafe
 public class AccidentService {
-    private final AccidentMem accidentMem;
+    private final AccidentJdbcTemplate accidents;
 
-    public AccidentService(AccidentMem accident) {
-        this.accidentMem = accident;
+    public AccidentService(AccidentJdbcTemplate accidents) {
+        this.accidents = accidents;
     }
 
     public Accident addAccident(Accident accident) {
-        return accidentMem.addAccident(accident);
+        return accidents.save(accident);
     }
 
     public List<Accident> findAll() {
-        return accidentMem.findAll();
+        return accidents.getAll();
     }
 
     public Accident findById(int id) {
-        return accidentMem.findById(id);
+        return accidents.findById(id);
     }
 
     public void update(Accident accident) {
-        accidentMem.update(accident);
+        accidents.update(accident);
     }
 }

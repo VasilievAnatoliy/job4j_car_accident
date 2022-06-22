@@ -2,25 +2,25 @@ package ru.job4j.accident.service;
 
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Service;
-import ru.job4j.accident.model.AccidentType;
-import ru.job4j.accident.repository.TypeMem;
+import ru.job4j.accident.model.Type;
+import ru.job4j.accident.repository.TypeJdbcTemplate;
 
 import java.util.List;
 
 @Service
 @ThreadSafe
 public class TypeService {
-    private final TypeMem typeMem;
+    private final TypeJdbcTemplate types;
 
-    public TypeService(TypeMem typeMem) {
-        this.typeMem = typeMem;
+    public TypeService(TypeJdbcTemplate types) {
+        this.types = types;
     }
 
-    public List<AccidentType> findAll() {
-        return typeMem.findAll();
+    public List<Type> findAll() {
+        return types.getAll();
     }
 
-    public AccidentType findById(int id) {
-        return typeMem.findById(id);
+    public Type findById(int id) {
+        return types.findById(id);
     }
 }

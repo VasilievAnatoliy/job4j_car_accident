@@ -9,10 +9,10 @@ public class Accident {
     private String name;
     private String text;
     private String address;
-    private AccidentType type;
+    private Type type;
     private Set<Rule> rules = new HashSet<>();
     public static Accident of(int id, String name, String text,
-                              String address, AccidentType type, Set<Rule> rules) {
+                              String address, Type type, Set<Rule> rules) {
         Accident accident = new Accident();
         accident.id = id;
         accident.name = name;
@@ -59,11 +59,11 @@ public class Accident {
         this.address = address;
     }
 
-    public AccidentType getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(AccidentType type) {
+    public void setType(Type type) {
         this.type = type;
     }
 

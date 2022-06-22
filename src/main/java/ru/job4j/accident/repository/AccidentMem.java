@@ -3,7 +3,7 @@ package ru.job4j.accident.repository;
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.model.Type;
 import ru.job4j.accident.model.Rule;
 
 import java.util.ArrayList;
@@ -21,13 +21,13 @@ public class AccidentMem {
 
     public AccidentMem() {
         addAccident(Accident.of(0, "Лобовое столкновение", "Описание столкновения",
-                "address1", AccidentType.of(1, "Две машины"),
+                "address1", Type.of(1, "Две машины"),
                 Set.of(Rule.of(1, "Статья 1"))));
         addAccident(Accident.of(0, "Сбит человек на переходе", "Описание происшествия",
-                "address2", AccidentType.of(2, "Машина и человек"),
+                "address2", Type.of(2, "Машина и человек"),
                 Set.of(Rule.of(2, "Статья 2"))));
         addAccident(Accident.of(0, "ДТП во дворе", "Описание ситуации",
-                "address3", AccidentType.of(3, "Машина и велосипед"),
+                "address3", Type.of(3, "Машина и велосипед"),
                 Set.of(Rule.of(4, "Статья 4"), Rule.of(3, "Статья 3"))));
     }
 
