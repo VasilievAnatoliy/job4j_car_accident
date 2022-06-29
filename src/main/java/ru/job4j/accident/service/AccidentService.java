@@ -4,6 +4,7 @@ import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Service;
 
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.repository.AccidentHibernate;
 import ru.job4j.accident.repository.AccidentJdbcTemplate;
 
 
@@ -12,9 +13,9 @@ import java.util.List;
 @Service
 @ThreadSafe
 public class AccidentService {
-    private final AccidentJdbcTemplate accidents;
+    private final AccidentHibernate accidents;
 
-    public AccidentService(AccidentJdbcTemplate accidents) {
+    public AccidentService(AccidentHibernate accidents) {
         this.accidents = accidents;
     }
 

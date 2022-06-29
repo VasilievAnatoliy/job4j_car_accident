@@ -13,9 +13,10 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Repository
+/*@Repository*/
 @ThreadSafe
 public class AccidentMem {
+    /*
     private final Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
     private final AtomicInteger count = new AtomicInteger(0);
 
@@ -46,5 +47,5 @@ public class AccidentMem {
 
     public void update(Accident accident) {
         accidents.replace(accident.getId(), accident);
-    }
+    }*/
 }

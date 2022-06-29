@@ -3,16 +3,16 @@ package ru.job4j.accident.service;
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Type;
-import ru.job4j.accident.repository.TypeJdbcTemplate;
+import ru.job4j.accident.repository.TypeHibernate;
 
 import java.util.List;
 
 @Service
 @ThreadSafe
 public class TypeService {
-    private final TypeJdbcTemplate types;
+    private final TypeHibernate types;
 
-    public TypeService(TypeJdbcTemplate types) {
+    public TypeService(TypeHibernate types) {
         this.types = types;
     }
 

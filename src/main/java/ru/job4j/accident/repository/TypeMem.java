@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Repository
+/*@Repository*/
 @ThreadSafe
 public class TypeMem {
     private final Map<Integer, Type> types = new ConcurrentHashMap<>();

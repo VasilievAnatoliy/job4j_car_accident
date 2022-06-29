@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Set;
 
-@Repository
+/*@Repository*/
 public class AccidentJdbcTemplate {
     private final JdbcTemplate jdbc;
 
