@@ -5,9 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.service.AccidentService;
-import ru.job4j.accident.service.RuleService;
-import ru.job4j.accident.service.TypeService;
+import ru.job4j.accident.service.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
@@ -15,12 +13,12 @@ import java.util.Arrays;
 @Controller
 @ThreadSafe
 public class AccidentControl {
-    private final AccidentService accidentService;
-    private final TypeService typeService;
-    private final RuleService ruleService;
+    private final AccidentServiceData accidentService;
+    private final TypeServiceData typeService;
+    private final RuleServiceData ruleService;
 
-    public AccidentControl(AccidentService accidentService,
-                           TypeService typeService, RuleService ruleService) {
+    public AccidentControl(AccidentServiceData accidentService,
+                           TypeServiceData typeService, RuleServiceData ruleService) {
         this.accidentService = accidentService;
         this.typeService = typeService;
         this.ruleService = ruleService;
@@ -60,7 +58,7 @@ public class AccidentControl {
         Arrays.stream(ids).forEach(i -> accident.addRule(
                 ruleService.findById(Integer.parseInt(i))));
         accident.setType(typeService.findById(id));
-        accidentService.update(accident);
+        accidentService.addAccident(accident);
         return "redirect:/";
     }
 }

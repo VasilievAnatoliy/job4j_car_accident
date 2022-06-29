@@ -7,7 +7,7 @@ import ru.job4j.accident.repository.TypeHibernate;
 
 import java.util.List;
 
-@Service
+/*@Service*/
 @ThreadSafe
 public class TypeService {
     private final TypeHibernate types;

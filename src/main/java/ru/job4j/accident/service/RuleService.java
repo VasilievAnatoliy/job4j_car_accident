@@ -8,7 +8,7 @@ import ru.job4j.accident.repository.RuleJdbcTemplate;
 
 import java.util.List;
 
-@Service
+/*@Service*/
 @ThreadSafe
 public class RuleService {
     private final RuleHibernate rules;

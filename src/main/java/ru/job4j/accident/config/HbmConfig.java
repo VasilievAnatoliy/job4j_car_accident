@@ -18,7 +18,7 @@ import java.util.Properties;
 @PropertySource("classpath:app.properties")
 @EnableTransactionManagement
 public class HbmConfig {
-
+/*
     @Bean
     public DataSource ds(@Value("${jdbc.driver}") String driver,
                          @Value("${jdbc.url}") String url,
@@ -50,5 +50,5 @@ public class HbmConfig {
         HibernateTransactionManager tx = new HibernateTransactionManager();
         tx.setSessionFactory(sf);
         return tx;
-    }
+    }*/
 }

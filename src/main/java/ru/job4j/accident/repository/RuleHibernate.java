@@ -10,7 +10,7 @@ import ru.job4j.accident.model.Rule;
 import java.util.List;
 import java.util.function.Function;
 
-@Repository
+/*@Repository*/
 public class RuleHibernate {
     public final SessionFactory sf;
 

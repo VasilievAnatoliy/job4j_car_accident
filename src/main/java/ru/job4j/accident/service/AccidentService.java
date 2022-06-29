@@ -10,7 +10,7 @@ import ru.job4j.accident.repository.AccidentJdbcTemplate;
 
 import java.util.List;
 
-@Service
+/*@Service*/
 @ThreadSafe
 public class AccidentService {
     private final AccidentHibernate accidents;
