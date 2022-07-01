@@ -20,6 +20,9 @@
     <title>Accident</title>
 </head>
 <body>
+<div class="card-header">
+    Login as : ${user.username}
+</div>
 <div class="container">
     <div class="row">
         <table class="table">
