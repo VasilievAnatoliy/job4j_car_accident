@@ -1,10 +1,10 @@
 package ru.job4j.accident.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.repository.AccidentRepository;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
